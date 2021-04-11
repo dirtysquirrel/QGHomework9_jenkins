@@ -4,15 +4,8 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class StudentRegistrationTest {
+public class StudentRegistrationTest extends TestBase {
     StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
-
-
-    @BeforeAll
-    static void setup() {
-        Configuration.startMaximized = true;
-    }
-
 
     @Test
     public void checkRegistrationForm() {
