@@ -14,7 +14,6 @@ import static io.qameta.allure.Allure.*;
 public class StudentRegistrationForm {
     Faker faker = new Faker();
 
-
     String name = faker.name().firstName(),
             lastName = faker.name().lastName(),
             mail = faker.internet().emailAddress(),
@@ -41,31 +40,27 @@ public class StudentRegistrationForm {
         step("заполняем форму регистрации", () -> {
             step("заполняем общие данные", () -> {
                 $("#firstName").setValue(name);
-
                 $("#lastName").setValue(lastName);
-
                 $("#userEmail").setValue(mail);
-
-                $("label[for='gender-radio-2']").click();
-
+                $("label[for='gender-radio-2']").scrollTo().click();
                 $("#userNumber").setValue(phoneNumber);
             });
 
             step("заполняем дату рождения", () -> {
-                $("#dateOfBirthInput").click();
+                $("#dateOfBirthInput").scrollTo().click();
                 $(".react-datepicker__month-select").selectOption(month);
                 $(".react-datepicker__year-select").selectOption(year);
-                $(".react-datepicker__day--0" + day).click();
+                $(".react-datepicker__day--0" + day).scrollTo().click();
             });
 
             step("заполняем данные о предметах", () -> {
                 $("#subjectsInput").setValue(subject);
-                $("#react-select-2-option-0").click();
-                subject = $(".subjects-auto-complete__multi-value__label").getText();
+                $("#react-select-2-option-0").scrollTo().click();
+                subject = $(".subjects-auto-complete__multi-value__label").scrollTo().getText();
             });
 
             step("заполняем данные о хобби", () -> {
-                $("#hobbiesWrapper").$(byText(hobby)).click();
+                $("#hobbiesWrapper").$(byText(hobby)).scrollTo().click();
             });
 
             step("загружаем фото", () -> {
@@ -75,13 +70,14 @@ public class StudentRegistrationForm {
             step("вводим адрес", () -> {
                 $("#currentAddress").setValue(address);
 
-                $("#state").scrollTo().click();
-                $(byText(state)).click();
+                $("#state").scrollTo().scrollTo().click();
+                $(byText(state)).scrollTo().click();
 
                 $(byText("Select City")).scrollTo().click();
-                $(byText(city)).click();
-
-                $("#submit").click();
+                $(byText(city)).scrollTo().click();
+            });
+            step("сохраняем данные", () -> {
+                $("#submit").scrollTo().click();
             });
         });
     }
