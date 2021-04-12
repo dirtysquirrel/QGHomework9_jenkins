@@ -12,4 +12,4 @@
 
 Пример запуска
 
-```gradle clean positive_tests -Dbrowser=chrome -Dremote.driver="https://%s:%s@$selenoid.autotests.cloud/wd/hub/" -Dvideo.storage="https://selenoid.autotests.cloud/video/" ```
+```gradle clean test -Dbrowser=chrome -Dremote.driver="https://%s:%s@$selenoid.autotests.cloud/wd/hub/" -Dvideo.storage="https://selenoid.autotests.cloud/video/" ```
